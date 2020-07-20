@@ -5,6 +5,7 @@
   "description": "React pagination navbar",
   "main": "./lib/ReactPaginationNav.js",
   "license": "MIT",
+  "engines" : { "node" : ">=6.0.0" },
   "repository": "https://github.com/mohitkyadav/react-pagination-nav",
   "scripts": {
     "build": "webpack"
