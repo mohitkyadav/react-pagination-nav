@@ -1,13 +1,22 @@
 # React Pagination Navbar
 
-![npm](https://img.shields.io/npm/v/react-pagination-nav?style=for-the-badge)
-![node-current](https://img.shields.io/node/v/react-pagination-nav?style=for-the-badge)
-![npm](https://img.shields.io/npm/dt/react-pagination-nav?style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
+[![node-current](https://img.shields.io/node/v/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
+[![npm](https://img.shields.io/npm/dt/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
 ![NPM](https://img.shields.io/npm/l/react-pagination-nav?style=for-the-badge)
 
 ![Demo](./demo.gif)
 
 ## Usage
+Install the package
+```
+npm i react-pagination-nav
+```
+import the package
+
+```
+import ReactPaginationNav from 'react-pagination-nav'
+```
 ```
 const MyComponent = () => {
   const [currentPage, setCurrentPage] = React.useState(1)
