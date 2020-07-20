@@ -1,9 +1,11 @@
 {
+  "author": "Mohit Kumar Yadav",
   "name": "react-pagination-nav",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React pagination navbar",
   "main": "./lib/ReactPaginationNav.js",
   "license": "MIT",
+  "repository": "https://github.com/mohitkyadav/react-pagination-nav",
   "scripts": {
     "build": "webpack"
   },
