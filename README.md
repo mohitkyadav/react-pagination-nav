@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/dt/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
 ![NPM](https://img.shields.io/npm/l/react-pagination-nav?style=for-the-badge)
 
-![Demo](./demo.gif)
+![Demo](./demo/demo.gif)
 
 ## Usage
 Install the package

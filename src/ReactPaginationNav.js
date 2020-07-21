@@ -1,6 +1,5 @@
 import React from 'react'
 
-import _ from 'lodash'
 import cn from 'classnames'
 
 import './index.scss'
@@ -27,7 +26,7 @@ const ReactPaginationNav = (props) => {
       </button>
       <div className="react-pagination-nav__page-list">
         {
-          _.times(props.pageCount, (i) => {
+          Array(props.pageCount).fill().map((_, i) => {
             return (
               (
                 Math.abs(props.currentPage - 1 - i) < 3 ||
