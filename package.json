@@ -1,5 +1,9 @@
 {
-  "author": "Mohit Kumar Yadav",
+  "author": {
+		"name": "Mohit Kumar Yadav",
+		"email": "mohitkyadav@outlook.com",
+		"url": "https://github.com/mohitkyadav"
+	},
   "name": "react-pagination-nav",
   "version": "1.0.5",
   "description": "React pagination navbar",
