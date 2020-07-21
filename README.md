@@ -39,7 +39,7 @@ const MyComponent = () => {
 
 * `className`       👉 :optional: custom class name for the container
 * `pageCount`       👉 total pages
-* `visiblePages`    👉 :optional, default 5: number of visible pages
+* `visiblePages`    👉 :optional, default 5: number of visible pages, *output would be same for any even number and number + 1*
 * `currentPage`     👉 current active page
 * `goToNextPage`    👉 :funtion: called when clicked on right arrow button
 * `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
