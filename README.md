@@ -25,6 +25,7 @@ const MyComponent = () => {
       <ReactPaginationNav
         className="my-pagination-nav-bar-class"
         pageCount={9}
+        visiblePages={5}
         currentPage={currentPage}
         goToNextPage={() => setCurrentPage(currentPage + 1)}
         goToPreviousPage={() => setCurrentPage(currentPage - 1)}
@@ -34,6 +35,15 @@ const MyComponent = () => {
   )
 }
 ```
+## props
+
+* `className`       👉 :optional: custom class name for the container
+* `pageCount`       👉 total pages
+* `visiblePages`    👉 :optional, default 5: number of visible pages
+* `currentPage`     👉 current active page
+* `goToNextPage`    👉 :funtion: called when clicked on right arrow button
+* `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
+* `goToPage`        👉 :funtion: called when clicked on a page number
 
 ## Author
 

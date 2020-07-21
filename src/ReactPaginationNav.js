@@ -17,8 +17,10 @@ import './index.scss'
 const ReactPaginationNav = ({
   className, goToPreviousPage, pageCount, currentPage, goToPage, goToNextPage, visiblePages = 5
 }) => {
-  // in case an
-  const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0 ? parseInt(visiblePages, 10) + 1 : parseInt(visiblePages, 10)
+  // in case visiblePages is an even number
+  const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
+    ? parseInt(visiblePages, 10) + 1
+    : parseInt(visiblePages, 10)
   const halfVisiblePages = oddVisiblePages / 2
 
   return (
