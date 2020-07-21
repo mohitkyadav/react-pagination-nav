@@ -3,7 +3,6 @@
 [![npm](https://img.shields.io/npm/v/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
 [![node-current](https://img.shields.io/node/v/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
 [![npm](https://img.shields.io/npm/dt/react-pagination-nav?style=for-the-badge)](https://www.npmjs.com/package/react-pagination-nav)
-![NPM](https://img.shields.io/npm/l/react-pagination-nav?style=for-the-badge)
 
 ![Demo](./demo/demo.gif)
 
@@ -41,3 +40,8 @@ const MyComponent = () => {
 [![GH](https://img.shields.io/badge/github-mohit_kumar_yadav-34bf49?logo=github&style=for-the-badge)](https://github.com/mohitkyadav)
 
 [![Discord](https://img.shields.io/discord/522610943037931551?color=7389D8&logo=discord&style=for-the-badge)](https://discord.gg/bJGQRJx)
+
+# License
+MIT Licensed. Copyright (c) Mohit Kumar Yadav 2020.
+
+![NPM](https://img.shields.io/npm/l/react-pagination-nav?style=for-the-badge)
