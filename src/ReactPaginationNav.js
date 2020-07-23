@@ -15,7 +15,9 @@ import './index.scss'
  * currentPage  : current page number
  */
 const ReactPaginationNav = ({
-  className, goToPreviousPage, pageCount, currentPage, goToPage, goToNextPage, visiblePages = 5
+  className, goToPreviousPage, pageCount, currentPage,
+  goToPage, goToNextPage, visiblePages = 5,
+  isPreviousBtnHidden, isNextBtnHidden
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -25,14 +27,16 @@ const ReactPaginationNav = ({
 
   return (
     <div className={cn('react-pagination-nav', className)}>
-      <button
-        className="react-pagination-nav__prev-page react-pagination-nav__button"
-        onClick={() => goToPreviousPage()}
-        title="Go to previous page"
-        aria-label="Go to previous page"
-      >
-        {'<'}
-      </button>
+      {!isPreviousBtnHidden && (
+        <button
+          className="react-pagination-nav__prev-page react-pagination-nav__button"
+          onClick={() => goToPreviousPage()}
+          title="Go to previous page"
+          aria-label="Go to previous page"
+        >
+          {'<'}
+        </button>
+      )}
       <div className="react-pagination-nav__page-list">
         {
           Array(pageCount).fill().map((_, i) => {
@@ -59,14 +63,16 @@ const ReactPaginationNav = ({
           })
         }
       </div>
-      <button
-        className="react-pagination-nav__next-page react-pagination-nav__button"
-        onClick={() => goToNextPage()}
-        title="Go to next page"
-        aria-label="Go to next page"
-      >
-        {'>'}
-      </button>
+      {!isNextBtnHidden && (
+        <button
+          className="react-pagination-nav__next-page react-pagination-nav__button"
+          onClick={() => goToNextPage()}
+          title="Go to next page"
+          aria-label="Go to next page"
+        >
+          {'>'}
+        </button>
+      )}
     </div>
   )
 }
