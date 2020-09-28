@@ -30,6 +30,7 @@ const MyComponent = () => {
         goToNextPage={() => setCurrentPage(currentPage + 1)}
         goToPreviousPage={() => setCurrentPage(currentPage - 1)}
         goToPage={(newPage) => setCurrentPage(newPage)}
+        PageButton={({ page, active, onClick }) => <CustomButton onClick={onClick} active={active}>{page + 1}</CustomButton>}
       />
     </div>
   )
@@ -46,6 +47,7 @@ const MyComponent = () => {
 * `goToNextPage`    👉 :funtion: called when clicked on right arrow button
 * `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
 * `goToPage`        👉 :funtion: called when clicked on a page number
+* `PageButton`      👉 :optional component: a button component for the page buttons
 
 ## Author
 
