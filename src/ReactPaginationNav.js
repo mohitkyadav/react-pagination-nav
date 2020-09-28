@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import cn from 'classnames'
 
@@ -17,7 +17,8 @@ import './index.scss'
 const ReactPaginationNav = ({
   className, goToPreviousPage, pageCount, currentPage,
   goToPage, goToNextPage, visiblePages = 5,
-  isPreviousBtnHidden, isNextBtnHidden
+  isPreviousBtnHidden, isNextBtnHidden,
+  PrevNextButton
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -27,16 +28,7 @@ const ReactPaginationNav = ({
 
   return (
     <div className={cn('react-pagination-nav', className)}>
-      {!isPreviousBtnHidden && (
-        <button
-          className="react-pagination-nav__prev-page react-pagination-nav__button"
-          onClick={() => goToPreviousPage()}
-          title="Go to previous page"
-          aria-label="Go to previous page"
-        >
-          {'<'}
-        </button>
-      )}
+      {!isPreviousBtnHidden && <PrevNextButton direction='prev' onClick={goToPreviousPage} />}
       <div className="react-pagination-nav__page-list">
         {
           Array(pageCount).fill().map((_, i) => {
@@ -63,18 +55,24 @@ const ReactPaginationNav = ({
           })
         }
       </div>
-      {!isNextBtnHidden && (
-        <button
-          className="react-pagination-nav__next-page react-pagination-nav__button"
-          onClick={() => goToNextPage()}
-          title="Go to next page"
-          aria-label="Go to next page"
-        >
-          {'>'}
-        </button>
-      )}
+      {!isNextBtnHidden && <PrevNextButton direction='next' onClick={goToNextPage} />}
     </div>
   )
+}
+
+const DefaultPrevNextButton = memo(({ direction, onClick }) => {
+  return <button
+    className={`react-pagination-nav__${direction}-page react-pagination-nav__button`}
+    onClick={onClick}
+    title={`Go to ${direction} page`}
+    aria-label={`Go to ${direction} page`}
+  >
+    {direction === 'prev' ? '<' : '>'}
+  </button>
+})
+
+ReactPaginationNav.defaultProps = {
+  PrevNextButton: DefaultPrevNextButton
 }
 
 export default ReactPaginationNav
