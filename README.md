@@ -46,6 +46,8 @@ const MyComponent = () => {
 * `goToNextPage`    👉 :funtion: called when clicked on right arrow button
 * `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
 * `goToPage`        👉 :funtion: called when clicked on a page number
+* `PrevNextButton`  👉 :optional component: a button component for the prev and next buttons
+* `PageButton`      👉 :optional component: a button component for the page buttons
 
 ## Author
 
