@@ -9,6 +9,8 @@ import './index.scss'
  * goToPreviousPage : called when pressing the left arrow button
  * goToNextPage     : called when pressing the right arrow button
  * goToPage         : called when pressing any of the page numbers
+ * goToFirstPage    : called when pressing the "Go to first page"
+ * goToLastPage     : called when pressing the "Go to last page"
  *
  * visiblePages : odd number of pages you want to be visible, default 5
  * pageCount    : total number of pages
@@ -20,7 +22,9 @@ const ReactPaginationNav = ({
   theme = 'dark',
   className, goToPreviousPage, pageCount, currentPage,
   goToPage, goToNextPage, visiblePages = 5,
-  isPreviousBtnHidden, isNextBtnHidden
+  isPreviousBtnHidden, isNextBtnHidden,
+  goToFirstPage, goToLastPage,
+  isFirstBtnHidden, isLastBtnHidden
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -30,6 +34,16 @@ const ReactPaginationNav = ({
 
   return (
     <div className={cn('react-pagination-nav', `react-pagination-nav--${theme}`, className)}>
+      {!isFirstBtnHidden && (
+        <button
+          className="react-pagination-nav__prev-page react-pagination-nav__button"
+          onClick={() => goToFirstPage()}
+          title="Go to first page"
+          aria-label="Go to first page"
+        >
+          {'First'}
+        </button>
+      )}
       {!isPreviousBtnHidden && (
         <button
           className="react-pagination-nav__prev-page react-pagination-nav__button"
@@ -58,9 +72,9 @@ const ReactPaginationNav = ({
                   "react-pagination-nav__page-number react-pagination-nav__button "
                   + (currentPage === i + 1 ? 'react-pagination-nav__button__active' : '')
                 }
-                onClick={() => goToPage(i+1)}
+                onClick={() => goToPage(i + 1)}
               >
-                {i+1}
+                {i + 1}
               </button>
             )
           })
@@ -74,6 +88,17 @@ const ReactPaginationNav = ({
           aria-label="Go to next page"
         >
           {'>'}
+        </button>
+      )}
+
+      {!isLastBtnHidden && (
+        <button
+          className="react-pagination-nav__next-page react-pagination-nav__button"
+          onClick={() => goToLastPage()}
+          title="Go to last page"
+          aria-label="Go to last page"
+        >
+          {'Last'}
         </button>
       )}
     </div>
