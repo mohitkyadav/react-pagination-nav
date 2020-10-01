@@ -36,7 +36,7 @@ const ReactPaginationNav = ({
     <div className={cn('react-pagination-nav', `react-pagination-nav--${theme}`, className)}>
       {!isFirstBtnHidden && (
         <button
-          className="react-pagination-nav__prev-page react-pagination-nav__button"
+          className="react-pagination-nav__first-page react-pagination-nav__button"
           onClick={() => goToFirstPage()}
           title="Go to first page"
           aria-label="Go to first page"
@@ -93,7 +93,7 @@ const ReactPaginationNav = ({
 
       {!isLastBtnHidden && (
         <button
-          className="react-pagination-nav__next-page react-pagination-nav__button"
+          className="react-pagination-nav__last-page react-pagination-nav__button"
           onClick={() => goToLastPage()}
           title="Go to last page"
           aria-label="Go to last page"
