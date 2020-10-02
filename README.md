@@ -46,6 +46,7 @@ const MyComponent = () => {
 * `goToNextPage`    👉 :funtion: called when clicked on right arrow button
 * `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
 * `goToPage`        👉 :funtion: called when clicked on a page number
+* `theme`           👉 :optional: default 'dark', can either be set to 'light' or 'dark'
 
 ## Author
 
