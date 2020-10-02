@@ -86,7 +86,8 @@ ReactPaginationNav.propTypes = {
   className: PropTypes.string,
   visiblePages: PropTypes.number,
   isPreviousBtnHidden: PropTypes.bool,
-  isNextBtnHidden: PropTypes.bool
+  isNextBtnHidden: PropTypes.bool,
+  theme: PropTypes.string
 }
 
 export default ReactPaginationNav
