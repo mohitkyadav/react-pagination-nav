@@ -48,6 +48,7 @@ const MyComponent = () => {
 * `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
 * `goToPage`        👉 :funtion: called when clicked on a page number
 * `PrevNextButton`  👉 :optional component: a button component for the prev and next buttons
+* `theme`           👉 :optional: default 'dark', can either be set to 'light' or 'dark'
 
 ## Author
 

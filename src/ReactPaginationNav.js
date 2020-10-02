@@ -13,8 +13,11 @@ import './index.scss'
  * visiblePages : odd number of pages you want to be visible, default 5
  * pageCount    : total number of pages
  * currentPage  : current page number
+ * 
+ * theme : set colors palette
  */
 const ReactPaginationNav = ({
+  theme = 'dark',
   className, goToPreviousPage, pageCount, currentPage,
   goToPage, goToNextPage, visiblePages = 5,
   isPreviousBtnHidden, isNextBtnHidden,
@@ -27,7 +30,7 @@ const ReactPaginationNav = ({
   const halfVisiblePages = oddVisiblePages / 2
 
   return (
-    <div className={cn('react-pagination-nav', className)}>
+    <div className={cn('react-pagination-nav', `react-pagination-nav--${theme}`, className)}>
       {!isPreviousBtnHidden && <PrevNextButton direction='prev' onClick={goToPreviousPage} />}
       <div className="react-pagination-nav__page-list">
         {
