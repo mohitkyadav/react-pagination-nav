@@ -2,7 +2,7 @@
 
 exports[`Nav renders and switches between pages 1`] = `
 <div
-  className="react-pagination-nav"
+  className="react-pagination-nav react-pagination-nav--dark"
 >
   <button
     aria-label="Go to previous page"
@@ -47,7 +47,7 @@ exports[`Nav renders and switches between pages 1`] = `
 
 exports[`Nav renders and switches between pages 2`] = `
 <div
-  className="react-pagination-nav"
+  className="react-pagination-nav react-pagination-nav--dark"
 >
   <button
     aria-label="Go to previous page"
@@ -92,7 +92,7 @@ exports[`Nav renders and switches between pages 2`] = `
 
 exports[`Nav renders and switches between pages 3`] = `
 <div
-  className="react-pagination-nav"
+  className="react-pagination-nav react-pagination-nav--dark"
 >
   <button
     aria-label="Go to previous page"
@@ -137,7 +137,7 @@ exports[`Nav renders and switches between pages 3`] = `
 
 exports[`Nav renders and switches between pages 4`] = `
 <div
-  className="react-pagination-nav"
+  className="react-pagination-nav react-pagination-nav--dark"
 >
   <button
     aria-label="Go to previous page"
