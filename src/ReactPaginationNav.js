@@ -1,6 +1,6 @@
 import React from 'react'
-
 import cn from 'classnames'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
@@ -78,6 +78,19 @@ const ReactPaginationNav = ({
       )}
     </div>
   )
+}
+
+ReactPaginationNav.propTypes = {
+  goToPreviousPage: PropTypes.func.isRequired,
+  goToNextPage: PropTypes.func.isRequired,
+  goToPage: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  visiblePages: PropTypes.number,
+  isPreviousBtnHidden: PropTypes.bool,
+  isNextBtnHidden: PropTypes.bool,
+  theme: PropTypes.string
 }
 
 export default ReactPaginationNav
