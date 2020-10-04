@@ -1,6 +1,6 @@
-import React from 'react'
-
+import React, { memo } from 'react'
 import cn from 'classnames'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
@@ -17,7 +17,7 @@ import './index.scss'
  * currentPage  : current page number
  * isFirstBtnHidden  : If false, display "Go to first page"
  * isLastBtnHidden  : If false, display "Go to last page"
- * 
+ * PageButton     : a button component for the page buttons
  * theme : set colors palette
  */
 const ReactPaginationNav = ({
@@ -26,7 +26,8 @@ const ReactPaginationNav = ({
   goToPage, goToNextPage, visiblePages = 5,
   isPreviousBtnHidden, isNextBtnHidden,
   goToFirstPage, goToLastPage,
-  isFirstBtnHidden, isLastBtnHidden
+  isFirstBtnHidden, isLastBtnHidden,
+  PageButton
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -78,6 +79,7 @@ const ReactPaginationNav = ({
               >
                 {i + 1}
               </button>
+              <PageButton page={i + 1} active={currentPage === i + 1} onClick={() => goToPage(i + 1)} />
             )
           })
         }
@@ -105,6 +107,37 @@ const ReactPaginationNav = ({
       )}
     </div>
   )
+}
+
+const DefaultPageButton = memo(({ page, active, onClick }) => {
+  return <button
+    key={page}
+    className={cn(
+      "react-pagination-nav__page-number react-pagination-nav__button",
+      ((active) && 'react-pagination-nav__button__active')
+    )}
+    onClick={onClick}
+  >
+    {page}
+  </button>
+})
+
+ReactPaginationNav.defaultProps = {
+  PageButton: DefaultPageButton
+}
+
+ReactPaginationNav.propTypes = {
+  PageButton: PropTypes.element,
+  goToPreviousPage: PropTypes.func.isRequired,
+  goToNextPage: PropTypes.func.isRequired,
+  goToPage: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  visiblePages: PropTypes.number,
+  isPreviousBtnHidden: PropTypes.bool,
+  isNextBtnHidden: PropTypes.bool,
+  theme: PropTypes.string
 }
 
 export default ReactPaginationNav
