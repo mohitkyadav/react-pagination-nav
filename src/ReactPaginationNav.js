@@ -9,6 +9,8 @@ import './index.scss'
  * goToPreviousPage : called when pressing the left arrow button
  * goToNextPage     : called when pressing the right arrow button
  * goToPage         : called when pressing any of the page numbers
+ * goToFirstPage    : called when pressing the "Go to first page"
+ * goToLastPage     : called when pressing the "Go to last page"
  *
  * visiblePages : odd number of pages you want to be visible, default 5
  * pageCount    : total number of pages
@@ -22,7 +24,9 @@ const ReactPaginationNav = ({
   className, goToPreviousPage, pageCount, currentPage,
   goToPage, goToNextPage, visiblePages = 5,
   isPreviousBtnHidden, isNextBtnHidden,
-  PrevNextButton, PageButton
+  PrevNextButton, PageButton,
+  goToFirstPage, goToLastPage,
+  isFirstBtnHidden, isLastBtnHidden
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -32,6 +36,17 @@ const ReactPaginationNav = ({
 
   return (
     <div className={cn('react-pagination-nav', `react-pagination-nav--${theme}`, className)}>
+
+      {!isFirstBtnHidden && (
+        <button
+          className="react-pagination-nav__first-page react-pagination-nav__button"
+          onClick={() => goToFirstPage && goToFirstPage()}
+          title="Go to first page"
+          aria-label="Go to first page"
+        >
+          {'First'}
+        </button>
+      )}
       {!isPreviousBtnHidden && <PrevNextButton direction='prev' onClick={goToPreviousPage} />}
       <div className="react-pagination-nav__page-list">
         {
@@ -51,6 +66,17 @@ const ReactPaginationNav = ({
         }
       </div>
       {!isNextBtnHidden && <PrevNextButton direction='next' onClick={goToNextPage} />}
+
+      {!isLastBtnHidden && (
+        <button
+          className="react-pagination-nav__last-page react-pagination-nav__button"
+          onClick={() => goToLastPage && goToLastPage()}
+          title="Go to last page"
+          aria-label="Go to last page"
+        >
+          {'Last'}
+        </button>
+      )}
     </div>
   )
 }
