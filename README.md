@@ -30,6 +30,8 @@ const MyComponent = () => {
         goToNextPage={() => setCurrentPage(currentPage + 1)}
         goToPreviousPage={() => setCurrentPage(currentPage - 1)}
         goToPage={(newPage) => setCurrentPage(newPage)}
+        PrevNextButton={({ direction, onClick }) => <CustomButton onClick={onClick}>{direction === 'prev' ? '<' : '>'}</CustomButton>}
+        PageButton={({ page, active, onClick }) => <CustomButton onClick={onClick} active={active}>{page + 1}</CustomButton>}
       />
     </div>
   )
@@ -46,6 +48,8 @@ const MyComponent = () => {
 * `goToNextPage`    👉 :funtion: called when clicked on right arrow button
 * `goToPreviousPage`👉 :funtion: called when clicked on left arrow button
 * `goToPage`        👉 :funtion: called when clicked on a page number
+* `PrevNextButton`  👉 :optional component: a button component for the prev and next buttons
+* `PageButton`      👉 :optional component: a button component for the page buttons
 * `theme`           👉 :optional: default 'dark', can either be set to 'light' or 'dark'
 
 ## Author
