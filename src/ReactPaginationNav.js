@@ -13,7 +13,8 @@ import './index.scss'
  * visiblePages : odd number of pages you want to be visible, default 5
  * pageCount    : total number of pages
  * currentPage  : current page number
- * 
+ * PrevNextButton : a button component for the prev and next buttons
+ * PageButton     : a button component for the page buttons
  * theme : set colors palette
  */
 const ReactPaginationNav = ({
@@ -21,7 +22,7 @@ const ReactPaginationNav = ({
   className, goToPreviousPage, pageCount, currentPage,
   goToPage, goToNextPage, visiblePages = 5,
   isPreviousBtnHidden, isNextBtnHidden,
-  PrevNextButton
+  PrevNextButton, PageButton
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -44,16 +45,7 @@ const ReactPaginationNav = ({
                   (Math.abs(currentPage - 1 - i) < (oddVisiblePages - (pageCount - currentPage)))
                 )
               ) &&
-              <button
-                key={i}
-                className={
-                  "react-pagination-nav__page-number react-pagination-nav__button "
-                  + (currentPage === i + 1 ? 'react-pagination-nav__button__active' : '')
-                }
-                onClick={() => goToPage(i+1)}
-              >
-                {i+1}
-              </button>
+              <PageButton page={i + 1} active={currentPage === i + 1} onClick={() => goToPage(i + 1)} />
             )
           })
         }
@@ -74,11 +66,26 @@ const DefaultPrevNextButton = memo(({ direction, onClick }) => {
   </button>
 })
 
+const DefaultPageButton = memo(({ page, active, onClick }) => {
+  return <button
+    key={page}
+    className={cn(
+      "react-pagination-nav__page-number react-pagination-nav__button",
+      ((active) && 'react-pagination-nav__button__active')
+    )}
+    onClick={onClick}
+  >
+    {page}
+  </button>
+})
+
 ReactPaginationNav.defaultProps = {
-  PrevNextButton: DefaultPrevNextButton
+  PrevNextButton: DefaultPrevNextButton,
+  PageButton: DefaultPageButton
 }
 
 ReactPaginationNav.propTypes = {
+  PageButton: PropTypes.element,
   PrevNextButton: PropTypes.element,
   goToPreviousPage: PropTypes.func.isRequired,
   goToNextPage: PropTypes.func.isRequired,
