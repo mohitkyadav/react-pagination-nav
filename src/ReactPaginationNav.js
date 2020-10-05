@@ -17,6 +17,7 @@ import './index.scss'
  * currentPage  : current page number
  * isFirstBtnHidden  : If false, display "Go to first page"
  * isLastBtnHidden  : If false, display "Go to last page"
+ * PrevNextButton : a button component for the prev and next buttons
  * PageButton     : a button component for the page buttons
  * theme : set colors palette
  */
@@ -27,7 +28,8 @@ const ReactPaginationNav = ({
   isPreviousBtnHidden, isNextBtnHidden,
   goToFirstPage, goToLastPage,
   isFirstBtnHidden, isLastBtnHidden,
-  PageButton
+  PageButton,
+  PrevNextButton, PageButton
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -57,6 +59,7 @@ const ReactPaginationNav = ({
           {'<'}
         </button>
       )}
+      {!isPreviousBtnHidden && <PrevNextButton direction='prev' onClick={goToPreviousPage} />}
       <div className="react-pagination-nav__page-list">
         {
           Array(pageCount).fill().map((_, i) => {
@@ -105,9 +108,21 @@ const ReactPaginationNav = ({
           {'Last'}
         </button>
       )}
+      {!isNextBtnHidden && <PrevNextButton direction='next' onClick={goToNextPage} />}
     </div>
   )
 }
+
+const DefaultPrevNextButton = memo(({ direction, onClick }) => {
+  return <button
+    className={`react-pagination-nav__${direction}-page react-pagination-nav__button`}
+    onClick={onClick}
+    title={`Go to ${direction} page`}
+    aria-label={`Go to ${direction} page`}
+  >
+    {direction === 'prev' ? '<' : '>'}
+  </button>
+})
 
 const DefaultPageButton = memo(({ page, active, onClick }) => {
   return <button
@@ -123,11 +138,13 @@ const DefaultPageButton = memo(({ page, active, onClick }) => {
 })
 
 ReactPaginationNav.defaultProps = {
+  PrevNextButton: DefaultPrevNextButton,
   PageButton: DefaultPageButton
 }
 
 ReactPaginationNav.propTypes = {
   PageButton: PropTypes.element,
+  PrevNextButton: PropTypes.element,
   goToPreviousPage: PropTypes.func.isRequired,
   goToNextPage: PropTypes.func.isRequired,
   goToPage: PropTypes.func.isRequired,
