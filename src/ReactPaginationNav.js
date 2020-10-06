@@ -9,10 +9,14 @@ import './index.scss'
  * goToPreviousPage : called when pressing the left arrow button
  * goToNextPage     : called when pressing the right arrow button
  * goToPage         : called when pressing any of the page numbers
+ * goToFirstPage    : called when pressing the "Go to first page"
+ * goToLastPage     : called when pressing the "Go to last page"
  *
  * visiblePages : odd number of pages you want to be visible, default 5
  * pageCount    : total number of pages
  * currentPage  : current page number
+ * isFirstBtnHidden  : If false, display "Go to first page"
+ * isLastBtnHidden  : If false, display "Go to last page"
  * PrevNextButton : a button component for the prev and next buttons
  * PageButton     : a button component for the page buttons
  * theme : set colors palette
@@ -22,6 +26,9 @@ const ReactPaginationNav = ({
   className, goToPreviousPage, pageCount, currentPage,
   goToPage, goToNextPage, visiblePages = 5,
   isPreviousBtnHidden, isNextBtnHidden,
+  goToFirstPage, goToLastPage,
+  isFirstBtnHidden, isLastBtnHidden,
+  PageButton,
   PrevNextButton, PageButton
 }) => {
   // in case visiblePages is an even number
@@ -32,6 +39,26 @@ const ReactPaginationNav = ({
 
   return (
     <div className={cn('react-pagination-nav', `react-pagination-nav--${theme}`, className)}>
+      {!isFirstBtnHidden && (
+        <button
+          className="react-pagination-nav__first-page react-pagination-nav__button"
+          onClick={() => goToFirstPage && goToFirstPage()}
+          title="Go to first page"
+          aria-label="Go to first page"
+        >
+          {'First'}
+        </button>
+      )}
+      {!isPreviousBtnHidden && (
+        <button
+          className="react-pagination-nav__prev-page react-pagination-nav__button"
+          onClick={() => goToPreviousPage()}
+          title="Go to previous page"
+          aria-label="Go to previous page"
+        >
+          {'<'}
+        </button>
+      )}
       {!isPreviousBtnHidden && <PrevNextButton direction='prev' onClick={goToPreviousPage} />}
       <div className="react-pagination-nav__page-list">
         {
@@ -45,11 +72,42 @@ const ReactPaginationNav = ({
                   (Math.abs(currentPage - 1 - i) < (oddVisiblePages - (pageCount - currentPage)))
                 )
               ) &&
+              <button
+                key={i}
+                className={
+                  "react-pagination-nav__page-number react-pagination-nav__button "
+                  + (currentPage === i + 1 ? 'react-pagination-nav__button__active' : '')
+                }
+                onClick={() => goToPage(i + 1)}
+              >
+                {i + 1}
+              </button>
               <PageButton page={i + 1} active={currentPage === i + 1} onClick={() => goToPage(i + 1)} />
             )
           })
         }
       </div>
+      {!isNextBtnHidden && (
+        <button
+          className="react-pagination-nav__next-page react-pagination-nav__button"
+          onClick={() => goToNextPage()}
+          title="Go to next page"
+          aria-label="Go to next page"
+        >
+          {'>'}
+        </button>
+      )}
+
+      {!isLastBtnHidden && (
+        <button
+          className="react-pagination-nav__last-page react-pagination-nav__button"
+          onClick={() => goToLastPage && goToLastPage()}
+          title="Go to last page"
+          aria-label="Go to last page"
+        >
+          {'Last'}
+        </button>
+      )}
       {!isNextBtnHidden && <PrevNextButton direction='next' onClick={goToNextPage} />}
     </div>
   )
