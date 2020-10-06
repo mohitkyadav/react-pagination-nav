@@ -28,8 +28,7 @@ const ReactPaginationNav = ({
   isPreviousBtnHidden, isNextBtnHidden,
   goToFirstPage, goToLastPage,
   isFirstBtnHidden, isLastBtnHidden,
-  PageButton,
-  PrevNextButton
+  PageButton, PrevNextButton
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
@@ -49,17 +48,9 @@ const ReactPaginationNav = ({
           {'First'}
         </button>
       )}
-      {!isPreviousBtnHidden && (
-        <button
-          className="react-pagination-nav__prev-page react-pagination-nav__button"
-          onClick={() => goToPreviousPage()}
-          title="Go to previous page"
-          aria-label="Go to previous page"
-        >
-          {'<'}
-        </button>
-      )}
+
       {!isPreviousBtnHidden && <PrevNextButton direction='prev' onClick={goToPreviousPage} />}
+
       <div className="react-pagination-nav__page-list">
         {
           Array(pageCount).fill().map((_, i) => {
@@ -72,18 +63,8 @@ const ReactPaginationNav = ({
                   (Math.abs(currentPage - 1 - i) < (oddVisiblePages - (pageCount - currentPage)))
                 )
               ) &&
-              ( 
+              (
                 <React.Fragment>
-                  <button
-                    key={i}
-                    className={
-                      "react-pagination-nav__page-number react-pagination-nav__button "
-                      + (currentPage === i + 1 ? 'react-pagination-nav__button__active' : '')
-                    }
-                    onClick={() => goToPage(i + 1)}
-                  >
-                    {i + 1}
-                  </button>
                   <PageButton page={i + 1} active={currentPage === i + 1} onClick={() => goToPage(i + 1)} />
                 </React.Fragment>
               )
@@ -91,16 +72,8 @@ const ReactPaginationNav = ({
           })
         }
       </div>
-      {!isNextBtnHidden && (
-        <button
-          className="react-pagination-nav__next-page react-pagination-nav__button"
-          onClick={() => goToNextPage()}
-          title="Go to next page"
-          aria-label="Go to next page"
-        >
-          {'>'}
-        </button>
-      )}
+
+      {!isNextBtnHidden && <PrevNextButton direction='next' onClick={goToNextPage} />}
 
       {!isLastBtnHidden && (
         <button
@@ -112,7 +85,6 @@ const ReactPaginationNav = ({
           {'Last'}
         </button>
       )}
-      {!isNextBtnHidden && <PrevNextButton direction='next' onClick={goToNextPage} />}
     </div>
   )
 }
