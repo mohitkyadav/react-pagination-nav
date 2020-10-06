@@ -72,17 +72,21 @@ const ReactPaginationNav = ({
                   (Math.abs(currentPage - 1 - i) < (oddVisiblePages - (pageCount - currentPage)))
                 )
               ) &&
-              <button
-                key={i}
-                className={
-                  "react-pagination-nav__page-number react-pagination-nav__button "
-                  + (currentPage === i + 1 ? 'react-pagination-nav__button__active' : '')
-                }
-                onClick={() => goToPage(i + 1)}
-              >
-                {i + 1}
-              </button>
-              <PageButton page={i + 1} active={currentPage === i + 1} onClick={() => goToPage(i + 1)} />
+              ( 
+                <React.Fragment>
+                  <button
+                    key={i}
+                    className={
+                      "react-pagination-nav__page-number react-pagination-nav__button "
+                      + (currentPage === i + 1 ? 'react-pagination-nav__button__active' : '')
+                    }
+                    onClick={() => goToPage(i + 1)}
+                  >
+                    {i + 1}
+                  </button>
+                  <PageButton page={i + 1} active={currentPage === i + 1} onClick={() => goToPage(i + 1)} />
+                </React.Fragment>
+              )
             )
           })
         }
