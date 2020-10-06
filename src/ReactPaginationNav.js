@@ -29,7 +29,7 @@ const ReactPaginationNav = ({
   goToFirstPage, goToLastPage,
   isFirstBtnHidden, isLastBtnHidden,
   PageButton,
-  PrevNextButton, PageButton
+  PrevNextButton
 }) => {
   // in case visiblePages is an even number
   const oddVisiblePages = (parseInt(visiblePages, 10) % 2) === 0
