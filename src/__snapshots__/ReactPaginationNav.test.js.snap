@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders and switches between pages 1`] = `
+<div
+  className="react-pagination-nav react-pagination-nav--dark"
+>
+  <button
+    aria-label="Go to previous page"
+    className="react-pagination-nav__prev-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to previous page"
+  >
+    &lt;
+  </button>
+  <div
+    className="react-pagination-nav__page-list"
+  >
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button react-pagination-nav__button__active"
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      3
+    </button>
+  </div>
+  <button
+    aria-label="Go to next page"
+    className="react-pagination-nav__next-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to next page"
+  >
+    &gt;
+  </button>
+</div>
+`;
+
+exports[`Nav renders and switches between pages 2`] = `
+<div
+  className="react-pagination-nav react-pagination-nav--dark"
+>
+  <button
+    aria-label="Go to previous page"
+    className="react-pagination-nav__prev-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to previous page"
+  >
+    &lt;
+  </button>
+  <div
+    className="react-pagination-nav__page-list"
+  >
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button react-pagination-nav__button__active"
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      3
+    </button>
+  </div>
+  <button
+    aria-label="Go to next page"
+    className="react-pagination-nav__next-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to next page"
+  >
+    &gt;
+  </button>
+</div>
+`;
+
+exports[`Nav renders and switches between pages 3`] = `
+<div
+  className="react-pagination-nav react-pagination-nav--dark"
+>
+  <button
+    aria-label="Go to previous page"
+    className="react-pagination-nav__prev-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to previous page"
+  >
+    &lt;
+  </button>
+  <div
+    className="react-pagination-nav__page-list"
+  >
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button react-pagination-nav__button__active"
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      3
+    </button>
+  </div>
+  <button
+    aria-label="Go to next page"
+    className="react-pagination-nav__next-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to next page"
+  >
+    &gt;
+  </button>
+</div>
+`;
+
+exports[`Nav renders and switches between pages 4`] = `
+<div
+  className="react-pagination-nav react-pagination-nav--dark"
+>
+  <button
+    aria-label="Go to previous page"
+    className="react-pagination-nav__prev-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to previous page"
+  >
+    &lt;
+  </button>
+  <div
+    className="react-pagination-nav__page-list"
+  >
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button react-pagination-nav__button__active"
+      onClick={[Function]}
+    >
+      3
+    </button>
+    <button
+      className="react-pagination-nav__page-number react-pagination-nav__button "
+      onClick={[Function]}
+    >
+      4
+    </button>
+  </div>
+  <button
+    aria-label="Go to next page"
+    className="react-pagination-nav__next-page react-pagination-nav__button"
+    onClick={[Function]}
+    title="Go to next page"
+  >
+    &gt;
+  </button>
+</div>
+`;
